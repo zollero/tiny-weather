@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
 import './index.scss'
+
+import TempVal from '../../components/temp-val'
+
 import logo from '../../assets/logo.jpg'
 import wind from '../../assets/wind.png'
 import iconHome from '../../assets/icon-home.png'
@@ -11,18 +14,16 @@ import nounRain from '../../assets/noun-rain.png'
 import nounWind from '../../assets/noun-wind.png'
 import nounHumidity from '../../assets/noun-humidity.png'
 
+import { getWeather  } from "../../api";
+import { SAVED_WEATHER } from '../../config/constant'
+
 const Home = () => {
   const [live, setLive] = useState(null)
 
-  const getWeatherInfo = () => {
-    fetch('https://restapi.amap.com/v3/weather/weatherInfo?key=02f33d95d248f25fad4d99e687c38d96&city=330100&extensions=base').then(res => {
-      return res.json()
-    }).then(result => {
-      console.log(result)
-      if (result.infocode === '10000') {
-        setLive(result.lives && result.lives[0])
-      }
-    })
+  const getWeatherInfo = async () => {
+    const result = await getWeather()
+    localStorage.setItem(SAVED_WEATHER, JSON.stringify(result))
+    setLive(result)
   }
 
   useEffect(() => {
@@ -39,18 +40,15 @@ const Home = () => {
             <div className="info-block">
               <img className="weather-img" src={wind} alt="weather" />
               <div className="weather">
-                <p className="weather-location">{ live.city}，{live.province}省</p>
+                <p className="weather-location">{ live.city}市</p>
                 <div className="weather-line">
                   <div className="weather-line-item">
-                    <div className="line-top">
-                      <span className="temp-no">{live.temperature}</span>
-                      <span className="temp-unit">°C</span>
-                    </div>
-                    <div className="date-val">周日, 11.am</div>
+                    <TempVal temp={live.tem} size="medium" />
+                    <div className="date-val">{live.week}, {live.update_time}</div>
                   </div>
                   <div className="weather-line-item">
-                    <p className="tag">{live.winddirection}风</p>
-                    <p className="tag">{live.weather}</p>
+                    <p className="tag">{live.win}</p>
+                    <p className="tag">{live.wea_day}</p>
                   </div>
                 </div>
               </div>
@@ -70,12 +68,12 @@ const Home = () => {
               <div className="line-info">
                 <img className="icon-img" src={nounHumidity} alt="湿度" />
                 <span className="icon-text">湿度</span>
-                <span className="icon-text flex-one">{live.humidity}%</span>
+                <span className="icon-text flex-one">{live.humidity}</span>
               </div>
               <div className="line-info">
                 <img className="icon-img" src={nounWind} alt="风速" />
                 <span className="icon-text">风速</span>
-                <span className="icon-text flex-one">{live.windpower}级</span>
+                <span className="icon-text flex-one">{live.win_meter}</span>
               </div>
             </div>
           </div>
