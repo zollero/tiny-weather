@@ -1,0 +1,215 @@
+
+.home-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
+
+  .logo-img {
+    position: absolute;
+    top: 98px;
+    left: 32px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 100px;
+    width: 460px;
+    transform: translate(-50%, -50%);
+  }
+
+  .info-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    padding: 36px;
+    border-radius: 60px;
+    background-color: #fff;
+
+    .weather-img {
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      width: 240px;
+      height: 240px;
+      margin-left: -120px;
+    }
+    
+    .weather {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .weather-location {
+        margin-bottom: 50px;
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        color: #332821;
+      }
+
+      .weather-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .weather-line-item {
+          display: flex;
+          flex-direction: column;
+
+          .line-top {
+            display: flex;
+            align-items: flex-start;
+          }
+          .line-bottom {
+            display: flex;
+            align-items: flex-end;
+          }
+          .temp-no {
+            font-family: 'Alegreya Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 128px;
+            line-height: 128px;
+            color: #332821;
+          }
+          .temp-unit {
+            margin-top: 10px;
+            font-family: 'Alegreya Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 28px;
+            color: #332821;
+          }
+          .date-val {
+            font-family: 'Alegreya Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 34px;
+            color: rgba(51, 40, 33, 0.5);
+          }
+          .tag {
+            width: 144px;
+            height: 32px;
+            margin-bottom: 8px;
+            line-height: 32px;
+            background: rgba(212, 66, 111, 0.5);
+            border-radius: 40px;
+
+            font-family: 'Alegreya Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            text-align: center;
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+
+    .weather-detail-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 326px;
+      height: 94px;
+      left: 50%;
+      bottom: -60px;
+      margin-left: -163px;
+      background: #5E4FC1;
+      border-radius: 36px;
+
+      font-family: 'Alegreya Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+  }
+
+  .extra-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 98px;
+
+    .line-info {
+      display: flex;
+      width: 320px;
+      margin-bottom: 24px;
+
+      .icon-img {
+        width: 48px;
+        height: 48px;
+        margin-right: 20px;
+      }
+      .icon-text {
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 44px;
+        color: #FFFFFF;
+      }
+      .flex-one {
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+
+  
+  .navigation-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    width: 686px;
+    height: 128px;
+    margin-left: -343px;
+    border-radius: 40px;
+    background-color: #FFFFFF;
+
+    .navigation-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .icon-img {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 5px;
+      }
+      .icon-name {
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+
+        color: #D86191;
+      }
+    }
+  }
+}
