@@ -18,9 +18,6 @@ module.exports = {
       }
     })
 
-    // 设置静态资源路径前缀
-    config.output.publicPath = '/tiny-weather'
-
     // 构建时生成PWA配置
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
       clientsClaim:true,

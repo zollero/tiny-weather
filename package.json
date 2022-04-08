@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
     "customize-cra": "^1.0.0",
     "postcss-plugin-px2rem": "^0.8.1",
     "postcss-px-to-viewport": "^1.1.1",
@@ -23,8 +24,8 @@
     "workbox-webpack-plugin": "^6.5.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "cross-env PUBLIC_URL=/tiny-weather/ react-app-rewired start",
+    "build": "cross-env PUBLIC_URL=/tiny-weather/ react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
