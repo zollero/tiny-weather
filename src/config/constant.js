@@ -1,2 +1,0 @@
-
-export const SAVED_WEATHER = 'SAVED_WEATHER'
