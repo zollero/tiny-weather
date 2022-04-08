@@ -16,6 +16,13 @@
     -->
     <link rel="manifest" href="./manifest.json" />
     <title>Tiny Weather</title>
+
+    <script>
+      // 注册 service worker
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('/service-worker.js', {scope: '/'})
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
