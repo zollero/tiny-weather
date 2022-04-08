@@ -47,7 +47,7 @@ const WeatherChart = ({hours}) => {
 
   return (
     <>
-      <div className="detail-content">
+      <div className="detail-content" key="chart-container">
         <canvas id="chartRef" className="chart-container" />
       </div>
       <div className="week-weather-container">

@@ -4,13 +4,24 @@ import React, { useState, useEffect } from 'react'
 import { getWeatherOfWeek } from '../../api'
 import './index.scss'
 
+const FORCAST_WEATHER = 'FORCAST_WEATHER'
+
 const WeekWeather = () => {
   const [week, setWeek] = useState([])
 
   useEffect(() => {
-    getWeatherOfWeek().then(week => {
-      setWeek(week.data)
-    })
+    if (window.navigator.onLine) {
+      getWeatherOfWeek().then(week => {
+        setWeek(week.data)
+        localStorage.setItem(FORCAST_WEATHER, JSON.stringify(week.data))
+      })
+    } else {
+      let savedForcastInfo = localStorage.getItem(FORCAST_WEATHER)
+      if (savedForcastInfo) {
+        savedForcastInfo = JSON.parse(savedForcastInfo)
+        setWeek(savedForcastInfo)
+      }
+    }
   }, [])
 
   return (

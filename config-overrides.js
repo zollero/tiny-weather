@@ -1,4 +1,6 @@
 
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+
 module.exports = {
   webpack: (config) => {
     config.module.rules[1].oneOf.forEach(rule => {
@@ -14,6 +16,11 @@ module.exports = {
         )
       }
     })
+
+    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim:true,
+      skipWaiting:true
+    }))
 
     return config
   }

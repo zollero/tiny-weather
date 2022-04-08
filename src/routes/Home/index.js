@@ -27,7 +27,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getWeatherInfo()
+    if (window.navigator.onLine) {
+      getWeatherInfo()
+    } else {
+      let savedInfo = localStorage.getItem(SAVED_WEATHER)
+      if (savedInfo) {
+        savedInfo = JSON.parse(savedInfo)
+      }
+      setLive(savedInfo)
+    }
   }, [])
   
   return (
