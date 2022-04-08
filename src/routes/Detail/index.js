@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import './index.scss'
 
 import backIcon from '../../assets/back.png'
-import wind from '../../assets/wind.png'
 import { getIcons } from '../../utils'
 
 import TempVal from '../../components/temp-val'

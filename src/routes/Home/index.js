@@ -7,7 +7,6 @@ import './index.scss'
 import TempVal from '../../components/temp-val'
 
 import logo from '../../assets/app-logo.png'
-import wind from '../../assets/wind.png'
 import iconHome from '../../assets/icon-home.png'
 
 import nounRain from '../../assets/noun-rain.png'

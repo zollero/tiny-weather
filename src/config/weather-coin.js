@@ -42,9 +42,7 @@ const icons = {
   }
 }
 
-function checkIsNight (time, sunrise, sunset) {
-  const now = new Date()
-  const date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate()
+function checkIsNight (date, time, sunrise, sunset) {
   const sunriseTime = new Date(`${date} ${sunrise}:00`).getTime()
   const sunsetTime = new Date(`${date} ${sunset}:00`).getTime()
   const timeTime = new Date(`${date} ${time}:00`).getTime()
@@ -57,7 +55,7 @@ function checkIsNight (time, sunrise, sunset) {
 
 function getWeaIcon (weather) {
   const wea = weather.wea
-  const isNight = checkIsNight(weather.update_time, weather.sunrise, weather.sunset)
+  const isNight = checkIsNight(weather.date, weather.update_time, weather.sunrise, weather.sunset)
   const dayOrNight = isNight ? 'night' : 'day'
   if (icons[wea])
     return icons[wea][dayOrNight]

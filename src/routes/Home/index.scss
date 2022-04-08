@@ -6,8 +6,6 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding-bottom: 220px;
-  overflow: auto;
   background-image: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
 
   .logo-img {
@@ -181,5 +179,12 @@
         color: #D86191;
       }
     }
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .home-container {
+    padding-bottom: 220px;
+    overflow: auto;
   }
 }

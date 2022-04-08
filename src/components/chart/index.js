@@ -3,6 +3,9 @@ import { Canvas, Chart, Line, Axis, Area } from '@antv/f2';
 import React, { useEffect } from 'react';
 import './index.scss'
 
+import TempVal from '../temp-val'
+
+
 const createChart = (data) => {
   const scale = {
     hours: {
@@ -43,9 +46,22 @@ const WeatherChart = ({hours}) => {
 
 
   return (
-    <div className="detail-content">
-      <canvas id="chartRef" className="chart-container" />
-    </div>
+    <>
+      <div className="detail-content">
+        <canvas id="chartRef" className="chart-container" />
+      </div>
+      <div className="week-weather-container">
+        { hours.slice(0, 3).map(v => (
+          <div
+            className="selected-hours"
+            key={v.date}
+          >
+            <TempVal temp={v.tem} size="small" />
+            <p className="hour-val">{v.hours}</p>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 
