@@ -16,6 +16,7 @@ import nounHumidity from '../../assets/noun-humidity.png'
 
 import { getWeather  } from "../../api";
 import { SAVED_WEATHER } from '../../config/constant'
+import getWeaIcon from '../../config/weather-coin'
 
 const Home = () => {
   const [live, setLive] = useState(null)
@@ -38,7 +39,7 @@ const Home = () => {
 
           <div className="info">
             <div className="info-block">
-              <img className="weather-img" src={wind} alt="weather" />
+              <img className="weather-img" src={getWeaIcon(live)} alt="weather" />
               <div className="weather">
                 <p className="weather-location">{ live.city}市</p>
                 <div className="weather-line">
@@ -53,9 +54,7 @@ const Home = () => {
                 </div>
               </div>
               <Link to="/detail">
-                <div className="weather-detail-btn">
-                  详情
-                </div>
+                <div className="weather-detail-btn">详情</div>
               </Link>
             </div>
 

@@ -14,6 +14,7 @@ import WeekWeather from "../../components/week-weather";
 
 import { SAVED_WEATHER } from '../../config/constant'
 import { getWeather  } from "../../api";
+import getWeaIcon from '../../config/weather-coin'
 
 const Detail = () => {
   const [weather, setWeather] = useState(null)
@@ -36,7 +37,7 @@ const Detail = () => {
         <Link to="/" replace>
           <img className="back-icon" src={backIcon} alt="返回按钮" />
         </Link>
-        <img className="weather-img" src={wind} alt="天气图标" />
+        <img className="weather-img" src={getWeaIcon(weather)} alt="天气图标" />
         <div className="detail-header">
           <p className="header-title">{weather.city}市</p>
           <TempVal temp={weather.tem} size="large" />
